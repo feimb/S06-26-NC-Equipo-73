@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
+import routes from './routes/index.js';
 
 //Importando para crear las rutas
 
@@ -43,7 +44,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Creando las rutas
+app.use('/api', routes);
 
 export default app;
-
 
