@@ -32,7 +32,7 @@ export default function Button({
         color: variant === "primary" ? "var(--bg-main)" : "var(--primary-accent)",
         borderColor: variant === "ghost" ? "var(--primary-accent)" : undefined,
       }}
-      {...props}
+      {...props as any}
     >
       {children}
     </motion.button>
