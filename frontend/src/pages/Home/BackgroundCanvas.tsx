@@ -104,7 +104,7 @@ export default function BackgroundCanvas() {
       }
     }
 
-    function drawEdges(time: number) {
+    function drawEdges(_time: number) {
       if (!ctx) return;
       for (const [i, j] of edges) {
         const a = nodes[i];
@@ -146,31 +146,31 @@ export default function BackgroundCanvas() {
       }
     }
 
-    function drawParticles() {
-      if (!ctx) return;
-      for (const p of particles) {
-        const from = nodes[p.from];
-        const to = nodes[p.to];
-        p.progress += p.speed;
-        if (p.progress > 1) p.progress = 0;
+    // function drawParticles() {
+    //   if (!ctx) return;
+    //   for (const p of particles) {
+    //     const from = nodes[p.from];
+    //     const to = nodes[p.to];
+    //     p.progress += p.speed;
+    //     if (p.progress > 1) p.progress = 0;
 
-        p.x = from.x + (to.x - from.x) * p.progress;
-        p.y = from.y + (to.y - from.y) * p.progress;
+    //     p.x = from.x + (to.x - from.x) * p.progress;
+    //     p.y = from.y + (to.y - from.y) * p.progress;
 
-        const px = p.x;
-        const py = p.y;
+    //     const px = p.x;
+    //     const py = p.y;
 
-        ctx.beginPath();
-        ctx.arc(px, py, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(254, 248, 212, 0.9)";
-        ctx.fill();
+    //     ctx.beginPath();
+    //     ctx.arc(px, py, 2, 0, Math.PI * 2);
+    //     ctx.fillStyle = "rgba(254, 248, 212, 0.9)";
+    //     ctx.fill();
 
-        ctx.beginPath();
-        ctx.arc(px, py, 5, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(125, 106, 198, 0.2)";
-        ctx.fill();
-      }
-    }
+    //     ctx.beginPath();
+    //     ctx.arc(px, py, 5, 0, Math.PI * 2);
+    //     ctx.fillStyle = "rgba(125, 106, 198, 0.2)";
+    //     ctx.fill();
+    //   }
+    // }
 
     function updateNodes() {
       for (const n of nodes) {
