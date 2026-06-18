@@ -17,26 +17,20 @@ export const createDataRoutes = (container: AppContainer) => {
      *       content:
      *         application/json:
      *           schema:
-     *             type: object
-     *             required: [consulta, filtros, idioma]
-     *             properties:
-     *               consulta:
-     *                 type: string
-     *               filtros:
-     *                 type: object
-     *                 required: [region, indicador]
-     *                 properties:
-     *                   region:
-     *                     type: string
-     *                   indicador:
-     *                     type: string
-     *               idioma:
-     *                 type: string
+     *             $ref: '#/components/schemas/DataRequest'
      *     responses:
      *       200:
      *         description: Resultado de la consulta
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/DataResponse'
      *       400:
      *         description: Solicitud inválida
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ValidationErrorResponse'
      */
     router.post('/', container.dataController.queryData);
 

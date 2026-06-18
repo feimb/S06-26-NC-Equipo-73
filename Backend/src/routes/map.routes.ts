@@ -15,6 +15,10 @@ export const createMapRoutes = (container: AppContainer) => {
      *     responses:
      *       200:
      *         description: Regiones disponibles para el mapa
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/MapResponse'
      */
     router.get('/', container.mapController.getMap);
 
