@@ -1,12 +1,26 @@
+import { DataController } from './controllers/data.controller.js';
 import { HealthController } from './controllers/health.controller.js';
+import { MapController } from './controllers/map.controller.js';
+import { AIService } from './services/ai.service.js';
+import { DataService } from './services/data.service.js';
 import { HealthService } from './services/health.service.js';
+import { MapService } from './services/map.service.js';
 
 export const createContainer = async () => {
     const healthService = new HealthService();
+    const aiService = new AIService();
+    const dataService = new DataService(aiService);
+    const mapService = new MapService();
+
     const healthController = new HealthController(healthService);
+    const dataController = new DataController(dataService);
+    const mapController = new MapController(mapService);
 
     return {
         healthController,
+        aiService,
+        dataController,
+        mapController,
     };
 };
 
