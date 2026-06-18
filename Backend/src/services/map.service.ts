@@ -4,6 +4,7 @@ export interface MapRegion {
     lng: number;
     concentration: number;
     networkCoverage: number;
+    //TODO: Revisar tipos de datos para los indicadores
     indicators: string[];
 }
 
